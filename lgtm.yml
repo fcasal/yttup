@@ -1,0 +1,10 @@
+extraction:
+  cpp:
+     configure:
+        command:
+        - ./mkfiles.pl
+        - ./mkauto.sh
+        - ./configure
+     index:
+        build_command:
+        - make plink puttygen -j5
