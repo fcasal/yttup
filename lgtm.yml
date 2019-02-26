@@ -1,5 +1,8 @@
 extraction:
   cpp:
+      prepare:
+         packages:
+           - "libperl5.26"
      configure:
         command:
         - ./mkfiles.pl
