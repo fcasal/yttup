@@ -19,7 +19,7 @@ use warnings;
 use FileHandle;
 use File::Basename;
 use Cwd;
-use Digest::SHA qw(sha512_hex);
+# use Digest::SHA qw(sha512_hex);
 
 if ($#ARGV >= 0 and ($ARGV[0] eq "-u" or $ARGV[0] eq "-U")) {
     # Convenience for Unix users: -u means that after we finish what
@@ -1080,7 +1080,7 @@ if (defined $makefiles{'vstudio10'} || defined $makefiles{'vstudio12'}) {
 
             $projguids{$windows_project} = $guid =
                 &invent_guid("project:$progname");
-        
+
             print
                 "Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"$windows_project\", \"$windows_project\\$windows_project.vcxproj\", \"{$guid}\"\n" .
                 "EndProject\n";
@@ -1115,7 +1115,7 @@ if (defined $makefiles{'vstudio10'} || defined $makefiles{'vstudio12'}) {
             ($windows_project, $type) = split ",", $progname;
             create_vs_project(\%all_object_deps, $windows_project, $type, $projguids{$windows_project}, $toolsver);
         }
-    
+
         chdir $orig_dir;
     }
 
@@ -2082,7 +2082,7 @@ sub invent_guid($) {
     0x7067E8A0,0x608C4838,0xC9F51CDE,0xA6D318DE,0x41C05B2A,0x694CCE0E,
     0xC7842451,0xA3194393,0xFBDC2C84,0xA6D2B577,0xC91E7924,0x01EDA708,
     0x22FBB61E,0x662F9B7B,0xDE3150C3,0x2397058C;
-    my $digest = sha512_hex($name . "\0" . $randdata);
+    my $digest = $randdata;
     return sprintf("%s-%s-%04x-%04x-%s",
                    substr($digest,0,8),
                    substr($digest,8,4),
