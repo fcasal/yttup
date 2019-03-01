@@ -1,13 +1,13 @@
 extraction:
-  cpp:
+   cpp:
       prepare:
          packages:
-           - "libperl5.26"
-     configure:
-        command:
-        - ./mkfiles.pl
-        - ./mkauto.sh
-        - ./configure
-     index:
-        build_command:
-        - make plink puttygen -j5
+            - "libperl5.26"
+      configure:
+         command:
+            - ./mkfiles.pl
+            - ./mkauto.sh
+            - ./configure
+      index:
+         build_command:
+            - make plink puttygen -j5
